@@ -1,14 +1,17 @@
 
 import buttons.*;
+import data.*;
 
 import javax.swing.*;
+
 import java.awt.*;
-import java.io.File;
+
+import java.io.*;
 import java.io.IOException;
+
 import java.util.HashMap;
 import java.util.HashSet;
 
-import data.TrainingDay;
 import org.codehaus.jackson.map.ObjectMapper;
 
 public class Workout extends JFrame {
@@ -16,18 +19,12 @@ public class Workout extends JFrame {
     public HashMap<String, TrainingDay> trDays = new HashMap<>();
     public Workout() {
         super("Workout");
-    //TODO: Реализовать считывание из json-файла в мапу
 
-        String path = "/Users/yyyyyliaa/Workout-swing-application/src/data/dataAboutWorkout.json";
-        TrainingDay td = new TrainingDay(1,10);
-        TrainingDay td2 = new TrainingDay(10,11);
-        trDays.put("01/10", td);
-        trDays.put("10/11", td2);
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            mapper.writeValue(new File(path), trDays);
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        String path = "src/data/dataAboutWorkout.json";
+        File file = new File(path);
+        if (!(file.length() == 0L)) { //TODO: Реализовать считывание из json-файла в мапу
+
         }
 
 
@@ -65,12 +62,14 @@ public class Workout extends JFrame {
         p1.add(add);
         p1.add(res);
 
-        //TODO: Реализовать запись данных в файл после завершения программы
 
 
-    }
+        ObjectMapper mapper = new ObjectMapper(); //TODO: Реализовать запись данных в файл после завершения программы
+        try {
+            mapper.writeValue(new File(path), trDays);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-    public static void main(String[] args) {
-        new Workout().setVisible(true);
     }
 }
