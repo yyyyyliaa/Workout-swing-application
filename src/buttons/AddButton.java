@@ -8,7 +8,7 @@ import java.util.HashSet;
 
 public class AddButton extends JButton {
 
-    public AddButton(String text){ //TODO: Сделать при добавлении дня всплывающее окно с выбором вида упражнений
+    public AddButton(String text){
         super(text);
     }
 
@@ -18,7 +18,7 @@ public class AddButton extends JButton {
                 ((m == 4 || m == 6 || m == 9 || m == 11) && d < 32 && d > 0);
     }
 
-    public void addActionListener(HashSet<String> days, HashMap<String, TrainingDay> trDays, JFrame w){
+    public void addActionListener(HashSet<String> days, HashSet<TrainingDay> trDays, JFrame w){
         super.addActionListener(e -> {
             String data;
             data = JOptionPane.showInputDialog ("Enter the date in the format: dd/mm");
@@ -35,7 +35,12 @@ public class AddButton extends JButton {
 
             if(checkDataFormat(d, m)){
                 days.add(data);
-                trDays.put(data, new TrainingDay(d, m));
+                trDays.add(new TrainingDay(d, m));
+                /*TODO: Открывается окно с выбором типа тренировки, затем окно для добавления результатов
+                *  ПРОВЕРКА НА КОРРЕКТНОСТЬ ВВОДА ДАННЫХ!!!!!*/
+
+            } else {
+                JOptionPane.showMessageDialog(w,"Wrong data");
             }
         });
 
