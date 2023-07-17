@@ -9,16 +9,26 @@ public class TrainingDay { //TODO: Добавить хранение вида т
     private Integer month;
 
     private String workoutType;
-    private Integer weight;
+    private Integer[] weights;
     private List<String> results;
 
 
-    public TrainingDay(Integer d, Integer m, String type, Integer w, List<String> res){
+    public TrainingDay(String data){
+        String[] tokens = data.split("/");
+        day = Integer.parseInt(tokens[0]);
+        month = Integer.parseInt(tokens[1]);
+    }
+
+    public TrainingDay(Integer d, Integer m, String type, Integer[] w, List<String> res){
         day = d;
         month = m;
         workoutType = type;
-        weight = w;
+        weights = w;
         results = res;
+    }
+    public TrainingDay(Integer d, Integer m){
+        day = d;
+        month = m;
     }
 
 
@@ -45,14 +55,7 @@ public class TrainingDay { //TODO: Добавить хранение вида т
     public void setWorkoutType(String workoutType) {
         this.workoutType = workoutType;
     }
-
-    public Integer getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
+    
 
     public List<String> getResults() {
         return results;
@@ -60,5 +63,13 @@ public class TrainingDay { //TODO: Добавить хранение вида т
 
     public void setResults(List<String> results) {
         this.results = results;
+    }
+
+    public Integer[] getWeights() {
+        return weights;
+    }
+
+    public void setWeights(Integer[] weights) {
+        this.weights = weights;
     }
 }
