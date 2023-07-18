@@ -1,75 +1,48 @@
 package data;
 
 import java.util.Arrays;
-import java.util.List;
+import java.util.Vector;
+
+
 
 public class TrainingDay { //TODO: Добавить хранение вида тренировок и выполненных упражнений
                             //TODO: Добавить считывание/запись в файл
-    private Integer day;
-    private Integer month;
-
-    private String workoutType;
-    private Integer[] weights;
-    private List<String> results;
+    private String dayMonth;
+    private Integer weight; //для построения графика
+    private final Vector<Vector<String>> data = new Vector<>();
 
 
-    public TrainingDay(String data){
-        String[] tokens = data.split("/");
-        day = Integer.parseInt(tokens[0]);
-        month = Integer.parseInt(tokens[1]);
+    public TrainingDay(String d, String[] res, String workoutType, Object[] exercise){
+        Vector<String> columnsHeader = new Vector<>(Arrays.asList("Exercise", "Number of sets/reps", "Weight, kg"));
+        dayMonth = d;
+//
+//        String[] tokens = d.split("/");
+//        day = Integer.parseInt(tokens[0]);
+//        month = Integer.parseInt(tokens[1]);
+
+        data.add(columnsHeader);
+
+
+        for(int i = 0; i<res.length; i++){
+            String[] tmp = res[i].split(", ");
+            if(i==0) weight = Integer.parseInt(tmp[1]);
+
+            Vector<String> row = new Vector<String>();
+            row.add((String)exercise[i]);
+            row.add(tmp[0]);
+            row.add(tmp[1]);
+
+            data.add(row);
+        }
     }
 
-    public TrainingDay(Integer d, Integer m, String type, Integer[] w, List<String> res){
-        day = d;
-        month = m;
-        workoutType = type;
-        weights = w;
-        results = res;
-    }
-    public TrainingDay(Integer d, Integer m){
-        day = d;
-        month = m;
+    public Vector<Vector<String>> getData(){
+        return data;
     }
 
-
-    public Integer getDay() {
-        return day;
+    public String getDayMonth() {
+        return dayMonth;
     }
 
-    public void setDay(int day) {
-        this.day = day;
-    }
-
-    public Integer getMonth() {
-        return month;
-    }
-
-    public void setMonth(int month) {
-        this.month = month;
-    }
-
-    public String getWorkoutType() {
-        return workoutType;
-    }
-
-    public void setWorkoutType(String workoutType) {
-        this.workoutType = workoutType;
-    }
-    
-
-    public List<String> getResults() {
-        return results;
-    }
-
-    public void setResults(List<String> results) {
-        this.results = results;
-    }
-
-    public Integer[] getWeights() {
-        return weights;
-    }
-
-    public void setWeights(Integer[] weights) {
-        this.weights = weights;
-    }
+    public Integer getWeight() {return weight;}
 }
