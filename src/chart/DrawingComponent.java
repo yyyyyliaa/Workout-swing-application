@@ -16,7 +16,7 @@ class DrawingComponent extends JPanel {
         this.p = p;
     }
     @Override
-    protected void paintComponent(Graphics gh) { //TODO: График должен выводиться в p2, а не в отдельный экран
+    protected void paintComponent(Graphics gh) {
         Graphics2D drp = (Graphics2D)gh;
         drp.drawLine(20, 700, 20, 20);
         drp.drawLine(20, 700, 750, 700);
