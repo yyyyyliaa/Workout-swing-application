@@ -9,13 +9,14 @@ import java.awt.*;
 import java.io.*;
 import java.io.IOException;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.*;
 import org.codehaus.jackson.map.ObjectMapper;
+
+
+/* TODO: 1)Реализовать ввод результатов и обработка их под объект TrainingDay
+         2)Реализовать считывание из файла/запись в таблицу
+         3) Разделить String[][] res на String[] res и Integer[] weight */
 
 public class Workout extends JFrame {
     public HashSet<String> days = new HashSet<>();
@@ -28,12 +29,7 @@ public class Workout extends JFrame {
         File file = new File(path);
         if (!(file.length() == 0L)) { //TODO: Реализовать считывание из json-файла в мапу если файл не пустой
 
-
         }
-
-
-        //Заменяем мапу на сэт
-        //Считать json в массив объектов (?)
 
 
 
@@ -54,11 +50,11 @@ public class Workout extends JFrame {
 
 
 
-        DayButton day = new DayButton("Day"); //TODO: Настроить отображение таблицы результатов
-        day.dayActionListener(days, p2);
+        DayButton day = new DayButton("Day");
+        day.dayActionListener(days, trDays, p2);
 
-        AddButton add = new AddButton("Add"); //TODO: Настроить добавление результатов в таблицу
-        add.addActionListener(days, trDays,this);
+        AddButton add = new AddButton("Add");
+        add.addActionListener(days, trDays, p2, this);
 
         ResButton res = new ResButton("Results");
         res.addActionListener(p2);
@@ -70,8 +66,6 @@ public class Workout extends JFrame {
         p1.add(add);
         p1.add(res);
         p1.add(exit);
-
-
     }
 
     public void jsonToPojo(File f, HashSet<TrainingDay> trDays) throws IOException{ //TODO: ПРОТЕСТИРОВАТЬ!!!
