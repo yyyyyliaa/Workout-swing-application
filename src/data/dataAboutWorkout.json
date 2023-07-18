@@ -1,1 +1,109 @@
-{"01/10":{"day":1,"month":10},"10/11":{"day":10,"month":11}}
+[
+  {
+    "data": [
+      [
+        "Exercise",
+        "Number of sets/reps",
+        "Weight, kg"
+      ],
+      [
+        "Deadlift",
+        "3/3",
+        "3"
+      ],
+      [
+        "Hyperextension",
+        "3/3",
+        "3"
+      ],
+      [
+        "Pull-ups",
+        "3/3",
+        "3"
+      ],
+      [
+        "Block thrust",
+        "3/3",
+        "3"
+      ],
+      [
+        "Biceps",
+        "3/3",
+        "3"
+      ]
+    ],
+    "dayMonth": "12/12",
+    "weight": 3
+  },
+  {
+    "data": [
+      [
+        "Exercise",
+        "Number of sets/reps",
+        "Weight, kg"
+      ],
+      [
+        "Deadlift",
+        "1/1",
+        "1"
+      ],
+      [
+        "Hyperextension",
+        "1/1",
+        "1"
+      ],
+      [
+        "Pull-ups",
+        "1/1",
+        "1"
+      ],
+      [
+        "Block thrust",
+        "1/1",
+        "1"
+      ],
+      [
+        "Biceps",
+        "1/1",
+        "1"
+      ]
+    ],
+    "dayMonth": "10/10",
+    "weight": 1
+  },
+  {
+    "data": [
+      [
+        "Exercise",
+        "Number of sets/reps",
+        "Weight, kg"
+      ],
+      [
+        "Squat",
+        "2/2",
+        "2"
+      ],
+      [
+        "Hyperextension",
+        "2/2",
+        "2"
+      ],
+      [
+        "Quadriceps",
+        "2/2",
+        "2"
+      ],
+      [
+        "Foot press",
+        "2/2",
+        "2"
+      ],
+      [
+        "Сalf muscle",
+        "2/2",
+        "2"
+      ]
+    ],
+    "dayMonth": "11/11",
+    "weight": 2
+  }]
