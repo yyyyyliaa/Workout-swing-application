@@ -15,16 +15,15 @@ public class Workout extends JFrame {
     public HashSet<String> days = new HashSet<>();
     public HashSet<TrainingDay> trDays = new HashSet<>();
     public Workout() {
-        super("view.Workout");
+        super("Workout");
 
-        String path = "src/data/data.txt";
+        String path = "src/io/data.txt";
         File file = new File(path);
-        if (!(file.length() == 0L)) { //TODO: Реализовать считывание из json-файла в мапу если файл не пустой
+        if (!(file.length() == 0L)) {
             DataProcessing.fromFileToSet(file, trDays);
             for(TrainingDay trd : trDays) days.add(trd.getDayMonth());
 
         }
-
 
         JPanel p1 = new JPanel(new BorderLayout());
         p1.setPreferredSize(new Dimension(200,400));
