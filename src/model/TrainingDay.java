@@ -1,11 +1,12 @@
 package model;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Vector;
 
 
 
-public class TrainingDay {
+public class TrainingDay implements Comparable {
     private final String dayMonth;
     private Integer weight; //для построения графика
     private final String workoutType;
@@ -51,5 +52,22 @@ public class TrainingDay {
         sb.append(Arrays.toString(results)).append("&");
 
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        TrainingDay trd = (TrainingDay) o;
+
+        String[] tokens1 = dayMonth.split("/");
+        int thisDay = Integer.parseInt(tokens1[0]);
+        int thisMonth = Integer.parseInt(tokens1[1]);
+
+        String[] tokens2 = trd.getDayMonth().split("/");
+        int day = Integer.parseInt(tokens2[0]);
+        int month = Integer.parseInt(tokens2[1]);
+
+        if(thisDay==day && thisMonth==month) return 0;
+        else if(thisMonth==month) return thisDay-day;
+        else return thisMonth-month;
     }
 }
