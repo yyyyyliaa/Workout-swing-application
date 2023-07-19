@@ -14,7 +14,6 @@ public class Chart extends JFrame {
         super(text);
         this.y = y;
         this.n = n;
-//        JPanel jcp = new JPanel(new BorderLayout());
         setContentPane(p);
         if (n==3) p.add(new DrawingComponent(xFor3days, y, n, p), BorderLayout.CENTER);
         else if (n==7) p.add(new DrawingComponent(xFor7Days, y, n, p), BorderLayout.CENTER);
@@ -22,6 +21,6 @@ public class Chart extends JFrame {
         setSize(800, 1000);
         setLocation(1100,100);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }
 }
