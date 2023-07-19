@@ -6,12 +6,7 @@ import view.ResultsTable;
 import javax.swing.*;
 import java.util.HashSet;
 
-public class DayButton extends JButton { //TODO: При выборе дня открывается пустая таблица, внизу кнопка "добавить рез-ты"
-    private String[] workoutType = {"Deadlift", "Squat", "Bench press"};
-//    private Object[] deadliftExercises = new String[] {"Hyperextension", "Pull-ups", "Block thrust", "Biceps"};
-//    private Object[] squatExercises = new String[] {"Hyperextension", "Quadriceps", "Foot press", "Сalf muscle"};
-//    private Object[] benchPressExercises = new String[] {};
-
+public class DayButton extends JButton {
     public DayButton(String text) {
         super(text);
     }
@@ -33,7 +28,6 @@ public class DayButton extends JButton { //TODO: При выборе дня от
             if(!(getDay ==null)){
                 if(!getDay.equals(" ")){
                     this.setLabel(getDay);
-
 
                     for(TrainingDay trd : trDays){
                         if (trd.getDayMonth().equals(getDay)){
