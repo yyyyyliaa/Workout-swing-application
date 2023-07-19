@@ -5,26 +5,24 @@ import java.util.Vector;
 
 
 
-public class TrainingDay { //TODO: Добавить хранение вида тренировок и выполненных упражнений
-                            //TODO: Добавить считывание/запись в файл
+public class TrainingDay {
     private String dayMonth;
     private Integer weight; //для построения графика
-    private final Vector<Vector<String>> data = new Vector<>();
+    private String workoutType;
+    private  Vector<Vector<String>> data = new Vector<>();
+    private String[] results;
 
 
     public TrainingDay(String d, String[] res, String workoutType, Object[] exercise){
         Vector<String> columnsHeader = new Vector<>(Arrays.asList("Exercise", "Number of sets/reps", "Weight, kg"));
         dayMonth = d;
-//
-//        String[] tokens = d.split("/");
-//        day = Integer.parseInt(tokens[0]);
-//        month = Integer.parseInt(tokens[1]);
-
+        results = res;
+        this.workoutType = workoutType;
         data.add(columnsHeader);
 
 
         for(int i = 0; i<res.length; i++){
-            String[] tmp = res[i].split(", ");
+            String[] tmp = res[i].split(" ");
             if(i==0) weight = Integer.parseInt(tmp[1]);
 
             Vector<String> row = new Vector<String>();
@@ -45,4 +43,13 @@ public class TrainingDay { //TODO: Добавить хранение вида т
     }
 
     public Integer getWeight() {return weight;}
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(dayMonth).append("%").append(workoutType).append("%");
+        sb.append(Arrays.toString(results)).append("&");
+
+        return sb.toString();
+    }
 }
