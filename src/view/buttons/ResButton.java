@@ -4,7 +4,7 @@ import view.chart.Chart;
 import model.TrainingDay;
 
 import javax.swing.*;
-import java.util.HashSet;
+import java.util.*;
 
 public class ResButton extends JButton {
     public ResButton(String text){ super(text);}
@@ -31,8 +31,19 @@ public class ResButton extends JButton {
                 days[i] = "";
             }
 
-            int k = trDays.size()-1;
-            for(TrainingDay t : trDays){
+            Comparator<TrainingDay> comp = new Comparator<TrainingDay>() {
+                @Override
+                public int compare(TrainingDay o1, TrainingDay o2) {
+                    return o2.compareTo(o1);
+                }
+            };
+
+            List<TrainingDay> list = new ArrayList<>(trDays);
+
+            list.sort(comp);
+
+            int k = list.size()-1;
+            for(TrainingDay t : list){
                 y[k] = 700 - t.getWeight();
                 days[k] = t.getDayMonth();
                 k--;
