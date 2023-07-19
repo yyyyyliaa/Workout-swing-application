@@ -4,11 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 class DrawingComponent extends JPanel {
-    int[] xg;
-    int[] yg;
-    int ng;
-
-    String[] days;
+    private final int[] xg;
+    private final int[] yg;
+    private final int ng;
+    private final String[] days;
 
     public DrawingComponent(int[] x, int[]y, int n, String[] days){
         xg = x;
@@ -35,8 +34,7 @@ class DrawingComponent extends JPanel {
 
         for(int i = 0; i<ng; i++){
             drp.drawChars(days[i].toCharArray(), 0, days[i].length(), xg[i], 720);
-            int newXcoord = 700- yg[i];
-            char[] coord = Integer.toString(newXcoord).toCharArray();
+            char[] coord = Integer.toString(700- yg[i]).toCharArray();
             drp.drawChars(coord, 0, coord.length, 10, yg[i]);
         }
 
