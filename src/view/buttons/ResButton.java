@@ -1,12 +1,10 @@
-package buttons;
+package view.buttons;
 
-import chart.Chart;
-import data.TrainingDay;
+import view.chart.Chart;
+import model.TrainingDay;
 
 import javax.swing.*;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
 public class ResButton extends JButton {
     public ResButton(String text){ //TODO: Настроить связь между выбранным днем и построением графика

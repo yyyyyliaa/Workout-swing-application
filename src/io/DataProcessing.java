@@ -1,4 +1,6 @@
-package data;
+package io;
+
+import model.TrainingDay;
 
 import java.io.*;
 import java.util.HashSet;

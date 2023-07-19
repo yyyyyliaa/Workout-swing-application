@@ -1,16 +1,10 @@
-package buttons;
+package view.buttons;
 
-import data.TextFieldWindow;
-import data.TrainingDay;
-import table.ResultsTable;
+import model.TrainingDay;
+import view.ResultsTable;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Vector;
 
 public class DayButton extends JButton { //TODO: При выборе дня открывается пустая таблица, внизу кнопка "добавить рез-ты"
     private String[] workoutType = {"Deadlift", "Squat", "Bench press"};

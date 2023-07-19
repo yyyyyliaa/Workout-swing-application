@@ -1,13 +1,10 @@
-package buttons;
+package view.buttons;
 
-import data.DataProcessing;
-import data.TrainingDay;
-import org.codehaus.jackson.map.ObjectMapper;
+import io.DataProcessing;
+import model.TrainingDay;
 
 import javax.swing.*;
 import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.HashSet;
 
 public class ExitButton extends JButton {

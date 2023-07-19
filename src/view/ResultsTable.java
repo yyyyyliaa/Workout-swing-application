@@ -1,6 +1,6 @@
-package table;
+package view;
 
-import data.TrainingDay;
+import model.TrainingDay;
 
 import javax.swing.*;
 import java.util.Arrays;

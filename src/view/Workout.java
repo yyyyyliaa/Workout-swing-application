@@ -1,6 +1,8 @@
+package view;
 
-import buttons.*;
-import data.*;
+import view.buttons.*;
+import io.DataProcessing;
+import model.TrainingDay;
 
 import javax.swing.*;
 
@@ -13,7 +15,7 @@ public class Workout extends JFrame {
     public HashSet<String> days = new HashSet<>();
     public HashSet<TrainingDay> trDays = new HashSet<>();
     public Workout() {
-        super("Workout");
+        super("view.Workout");
 
         String path = "src/data/data.txt";
         File file = new File(path);

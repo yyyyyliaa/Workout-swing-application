@@ -1,11 +1,10 @@
-package buttons;
+package view.buttons;
 
-import data.TextFieldWindow;
-import data.TrainingDay;
+import view.TextFieldWindow;
+import model.TrainingDay;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.HashMap;
 import java.util.HashSet;
 
 public class AddButton extends JButton {
@@ -48,7 +47,7 @@ public class AddButton extends JButton {
                 String getWorkoutType = (String) JOptionPane.showInputDialog(
                         p2,
                         "Choose the type of workout:",
-                        "Workout type",
+                        "view.Workout type",
                         JOptionPane.QUESTION_MESSAGE,
                         null,
                         workoutType,

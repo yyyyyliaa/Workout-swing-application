@@ -1,4 +1,4 @@
-package chart;
+package view.chart;
 
 import javax.swing.*;
 import java.awt.*;
