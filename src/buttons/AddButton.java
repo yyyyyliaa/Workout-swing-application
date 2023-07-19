@@ -10,11 +10,11 @@ import java.util.HashSet;
 
 public class AddButton extends JButton {
 
-    private String[] workoutType = {"Deadlift", "Squat", "Bench press"};
+    private final String[] workoutType = {"Deadlift", "Squat", "Bench press"};
 
-    private Object[] deadliftExercises = new String[] {"Deadlift", "Hyperextension", "Pull-ups", "Block thrust", "Biceps"};
-    private Object[] squatExercises = new String[] {"Squat", "Hyperextension", "Quadriceps", "Foot press", "Сalf muscle"};
-    private Object[] benchPressExercises = new String[] {"Bench press"};
+    private final Object[] deadliftExercises = new String[] {"Deadlift", "Hyperextension", "Pull-ups", "Block thrust", "Biceps"};
+    private final Object[] squatExercises = new String[] {"Squat", "Hyperextension", "Quadriceps", "Foot press", "Сalf muscle"};
+    private final Object[] benchPressExercises = new String[] {"Bench press", "Pec deck", "Triceps", "Bars", "Shoulder press"};
 
 
     public AddButton(String text){
@@ -45,7 +45,6 @@ public class AddButton extends JButton {
             if(checkDataFormat(d, m)){
                 days.add(data);
 
-                //Выводим окошко где можно выбрать тип тренировки
                 String getWorkoutType = (String) JOptionPane.showInputDialog(
                         p2,
                         "Choose the type of workout:",
@@ -58,7 +57,6 @@ public class AddButton extends JButton {
 
                 Object[] exercise = new Object[5];
 
-                //исходя из вида тренировки выбирается массив с упражнениями
                 if(getWorkoutType.equals("Deadlift")) exercise  = deadliftExercises;
                 else if(getWorkoutType.equals("Squat")) exercise  = squatExercises;
                 else exercise  = benchPressExercises;

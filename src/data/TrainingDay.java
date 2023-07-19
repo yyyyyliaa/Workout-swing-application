@@ -6,11 +6,11 @@ import java.util.Vector;
 
 
 public class TrainingDay {
-    private String dayMonth;
+    private final String dayMonth;
     private Integer weight; //для построения графика
-    private String workoutType;
-    private  Vector<Vector<String>> data = new Vector<>();
-    private String[] results;
+    private final String workoutType;
+    private final Vector<Vector<String>> data = new Vector<>();
+    private final String[] results;
 
 
     public TrainingDay(String d, String[] res, String workoutType, Object[] exercise){

@@ -13,7 +13,7 @@ public class ResButton extends JButton {
         super(text);
     }
 
-    public void addActionListener(JPanel p, HashSet<TrainingDay> trDays){
+    public void addActionListener(JFrame p, HashSet<TrainingDay> trDays){
         super.addActionListener(e -> {
             Object[] optionsToChoose = {"3 days", "7 days", "30 days"};
             String getPeriod = (String) JOptionPane.showInputDialog(
@@ -25,25 +25,24 @@ public class ResButton extends JButton {
                     optionsToChoose,
                     " ");
             String[] data = getPeriod.split(" ");
+            int period = Integer.parseInt(data[0]);
 
-            List<Integer> weights = new ArrayList<>();
-            for(TrainingDay t : trDays) weights.add(t.getWeight());
             int[] y = new int[30];
-            for(int i = 0; i<30; i++) y[i] = 700;
-            int k = 0;
-            for(Integer j : weights){
-                y[k] = j;
-                k++;
+            String[] days = new String[30];
+
+            for(int i = 0; i<30; i++) {
+                y[i] = 700;
+                days[i] = "";
             }
 
-
-            for (int i = 0; i < 3 / 2; i++) {
-                int tmp = y[i];
-                y[i] = y[y.length - i - 1];
-                y[y.length - i - 1] = tmp;
+            int k = trDays.size()-1;
+            for(TrainingDay t : trDays){
+                y[k] = 700 - t.getWeight();
+                days[k] = t.getDayMonth();
+                k--;
             }
-            p.removeAll();
-            new Chart(y, Integer.parseInt(data[0]), p, getPeriod).setVisible(true);
+
+            new Chart(y, period, p, getPeriod, days).setVisible(true);
         });;
     }
 }

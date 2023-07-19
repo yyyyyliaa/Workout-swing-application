@@ -47,7 +47,7 @@ public class Workout extends JFrame {
         add.addActionListener(days, trDays, p2, this);
 
         ResButton res = new ResButton("Results");
-        res.addActionListener(p2, trDays);
+        res.addActionListener(this, trDays);
 
         ExitButton exit = new ExitButton("Exit");
         exit.exitActionListener(trDays, file);

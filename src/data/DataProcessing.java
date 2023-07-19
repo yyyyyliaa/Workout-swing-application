@@ -6,7 +6,7 @@ import java.util.HashSet;
 public class DataProcessing {
     private static final Object[] deadliftExercises = new String[] {"Deadlift", "Hyperextension", "Pull-ups", "Block thrust", "Biceps"};
     private static final Object[] squatExercises = new String[] {"Squat", "Hyperextension", "Quadriceps", "Foot press", "Сalf muscle"};
-    private static final Object[] benchPressExercises = new String[] {"Bench press"};
+    private static final Object[] benchPressExercises = new String[] {"Bench press", "Pec deck", "Triceps", "Bars", "Shoulder press"};
     public static void fromFileToSet(File f, HashSet<TrainingDay> trDays){
         String line  = "";
         try(FileReader fr = new FileReader(f)){
