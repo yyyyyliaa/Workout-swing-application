@@ -7,9 +7,7 @@ import javax.swing.*;
 import java.util.HashSet;
 
 public class ResButton extends JButton {
-    public ResButton(String text){ //TODO: Настроить связь между выбранным днем и построением графика
-        super(text);
-    }
+    public ResButton(String text){ super(text);}
 
     public void addActionListener(JFrame p, HashSet<TrainingDay> trDays){
         super.addActionListener(e -> {
