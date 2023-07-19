@@ -5,18 +5,9 @@ import data.*;
 import javax.swing.*;
 
 import java.awt.*;
-
 import java.io.*;
-import java.io.IOException;
-
 import java.util.HashSet;
 
-import org.codehaus.jackson.map.ObjectMapper;
-
-
-/* TODO: 1)Реализовать ввод результатов и обработка их под объект TrainingDay
-         2)Реализовать считывание из файла/запись в таблицу
-         3) Разделить String[][] res на String[] res и Integer[] weight */
 
 public class Workout extends JFrame {
     public HashSet<String> days = new HashSet<>();
@@ -24,13 +15,13 @@ public class Workout extends JFrame {
     public Workout() {
         super("Workout");
 
-
-        String path = "src/data/dataAboutWorkout.json";
+        String path = "src/data/data.txt";
         File file = new File(path);
         if (!(file.length() == 0L)) { //TODO: Реализовать считывание из json-файла в мапу если файл не пустой
+            DataProcessing.fromFileToSet(file, trDays);
+            for(TrainingDay trd : trDays) days.add(trd.getDayMonth());
 
         }
-
 
 
         JPanel p1 = new JPanel(new BorderLayout());
@@ -49,7 +40,6 @@ public class Workout extends JFrame {
 
 
 
-
         DayButton day = new DayButton("Day");
         day.dayActionListener(days, trDays, p2);
 
@@ -57,19 +47,14 @@ public class Workout extends JFrame {
         add.addActionListener(days, trDays, p2, this);
 
         ResButton res = new ResButton("Results");
-        res.addActionListener(p2);
+        res.addActionListener(p2, trDays);
 
         ExitButton exit = new ExitButton("Exit");
-        exit.exitActionListener(trDays, path);
+        exit.exitActionListener(trDays, file);
 
         p1.add(day);
         p1.add(add);
         p1.add(res);
         p1.add(exit);
-    }
-
-    public void jsonToPojo(File f, HashSet<TrainingDay> trDays) throws IOException{ //TODO: ПРОТЕСТИРОВАТЬ!!!
-        ObjectMapper objectMapper = new ObjectMapper();
-        trDays.add(objectMapper.readValue(f, TrainingDay.class));
     }
 }
