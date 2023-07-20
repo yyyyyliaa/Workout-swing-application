@@ -32,9 +32,7 @@ public class ResButton extends JButton {
             }
 
             Comparator<TrainingDay> comp = (o1, o2) -> o2.compareTo(o1);
-
             List<TrainingDay> list = new ArrayList<>(trDays);
-
             list.sort(comp);
 
             int k = list.size()-1;

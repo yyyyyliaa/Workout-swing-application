@@ -18,7 +18,6 @@ public class TextFieldWindow extends JDialog {
         ex4 = new JTextField(exercise[3].toString(), 25);
         ex5 = new JTextField(exercise[4].toString(), 25);
 
-
         JButton setButton = new JButton("Set results");
         setButton.setPreferredSize(new Dimension(100,100));
 
