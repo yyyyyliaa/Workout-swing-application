@@ -1,15 +1,16 @@
 package view;
 
 import javax.swing.*;
+import java.awt.*;
 
 
 public class TextFieldWindow extends JDialog {
-    private JFrame f;
     private final JTextField ex1, ex2, ex3, ex4, ex5;
     public TextFieldWindow(String[] res, Object[] exercise, JFrame f){
         super(f, "Enter results of that day in next format:'sets'/'reps' 'weight'", true);
-        this.f = f;
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setSize(1500, 1000);
+        setLocation(100, 100);
 
         ex1 = new JTextField(exercise[0].toString(), 25);
         ex2 = new JTextField(exercise[1].toString(), 25);
@@ -18,8 +19,10 @@ public class TextFieldWindow extends JDialog {
         ex5 = new JTextField(exercise[4].toString(), 25);
 
 
-        JButton set = new JButton("Set results");
-        set.addActionListener(e -> {
+        JButton setButton = new JButton("Set results");
+        setButton.setPreferredSize(new Dimension(100,100));
+
+        setButton.addActionListener(e -> {
             if(checkCorrectData(ex1.getText())&&checkCorrectData(ex2.getText())&&checkCorrectData(ex3.getText())&&
                     checkCorrectData(ex4.getText())&&checkCorrectData(ex5.getText())){
                 res[0] = ex1.getText();
@@ -35,13 +38,21 @@ public class TextFieldWindow extends JDialog {
 
         });
 
-        add(ex1);
-        add(ex2);
-        add(ex3);
-        add(ex4);
-        add(ex5);
-        add(set);
+        JPanel p1 = new JPanel(new BorderLayout());
+        p1.setLayout(new GridLayout(5, 2));
 
+        JPanel p2 = new JPanel(new BorderLayout());
+
+        this.add(p1, BorderLayout.NORTH);
+        this.add(p2,BorderLayout.WEST);
+
+        p1.add(ex1);
+        p1.add(ex2);
+        p1.add(ex3);
+        p1.add(ex4);
+        p1.add(ex5);
+
+        p2.add(setButton);
     }
 
     private boolean checkCorrectData(String str){

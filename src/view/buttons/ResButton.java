@@ -31,12 +31,7 @@ public class ResButton extends JButton {
                 days[i] = "";
             }
 
-            Comparator<TrainingDay> comp = new Comparator<TrainingDay>() {
-                @Override
-                public int compare(TrainingDay o1, TrainingDay o2) {
-                    return o2.compareTo(o1);
-                }
-            };
+            Comparator<TrainingDay> comp = (o1, o2) -> o2.compareTo(o1);
 
             List<TrainingDay> list = new ArrayList<>(trDays);
 
