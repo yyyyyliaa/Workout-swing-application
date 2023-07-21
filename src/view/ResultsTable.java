@@ -11,7 +11,7 @@ public class ResultsTable extends JTable {
 
     public ResultsTable(TrainingDay trainingDay){
         super(trainingDay.getData(), new Vector<>(Arrays.asList("Exercise", "Number of sets/reps", "Weight, kg")));
-        setPreferredSize(new Dimension(1200, 200));
+        setPreferredSize(new Dimension(1200, 150));
     }
 
 }
