@@ -2,13 +2,12 @@ package test;
 
 import io.Exercise;
 import model.TrainingDay;
-import model.Trainings;
 import view.Workout;
 
 public class WorkoutTest {
-    private static Workout w = new Workout();
-    private static boolean[] testsRes = new boolean[5];
-    private static TrainingDay[] testData = new TrainingDay[5];
+    private static final Workout w = new Workout();
+    private static final boolean[] testsRes = new boolean[5];
+    private static final TrainingDay[] testData = new TrainingDay[5];
 
     private static void createSourceData(){
         String[] dataTest = {"10/10", "hbqwd", "31/02", "30", "1910u013"};
@@ -20,7 +19,7 @@ public class WorkoutTest {
                                   {"12/3 100", "qffq--fqwf", "1/12 70", "qfwf", "1111"}};
 
         for(int i = 0; i<5; i++){
-            if(TrainingDay.correctTrainingDay(dataTest[i], resultsTest[i], workoutTypesTest[i], Exercise.getExercise(workoutTypesTest[i]))) {
+            if(TrainingDay.correctTrainingDay(dataTest[i], resultsTest[i])) {
                 testData[i] = new TrainingDay(dataTest[i], resultsTest[i], workoutTypesTest[i], Exercise.getExercise(workoutTypesTest[i]));
             } else testData[i] = null;
 
@@ -29,7 +28,6 @@ public class WorkoutTest {
     }
     public static void runTest(){
         test1();
-        test2();
     }
 
     public static void getStat(){
@@ -45,9 +43,6 @@ public class WorkoutTest {
         }
     }
 
-    public static void test2(){
-
-    }
     public static void main(String[] args) {
         WorkoutTest.runTest();
         WorkoutTest.getStat();

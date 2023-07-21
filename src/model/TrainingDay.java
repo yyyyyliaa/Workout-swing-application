@@ -18,7 +18,7 @@ public class TrainingDay implements Comparable {
 
 
     public TrainingDay(String d, String[] res, String workoutType, Object[] exercise){
-        if(correctTrainingDay(d, res, workoutType, exercise)) {
+        if(correctTrainingDay(d, res)) {
             Vector<String> columnsHeader = new Vector<>(Arrays.asList("Exercise", "Number of sets/reps", "Weight, kg"));
             dayMonth = d;
             results = res;
@@ -40,7 +40,7 @@ public class TrainingDay implements Comparable {
         } else throw new RuntimeException("Incorrect data");
     }
 
-    public static boolean correctTrainingDay(String d, String[] res, String workoutType, Object[] exercise){
+    public static boolean correctTrainingDay(String d, String[] res){
         return Trainings.checkDataFormat(d) && Trainings.checkCorrectResults(res);
     }
 
