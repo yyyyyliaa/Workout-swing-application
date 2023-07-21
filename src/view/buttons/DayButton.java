@@ -1,6 +1,7 @@
 package view.buttons;
 
 import model.TrainingDay;
+import model.Trainings;
 import view.ResultsTable;
 
 import javax.swing.*;
@@ -11,10 +12,10 @@ public class DayButton extends JButton {
         super(text);
     }
 
-    public void dayActionListener(HashSet<String> days, HashSet<TrainingDay> trDays, JPanel p2) {
+    public void dayActionListener(Trainings trainings, JPanel p2) {
         super.addActionListener(e -> {
 
-            Object[] optionsToChoose = days.toArray();
+            Object[] optionsToChoose = trainings.getDays().toArray();
 
             String getDay = (String) JOptionPane.showInputDialog(
                     p2,
@@ -25,21 +26,13 @@ public class DayButton extends JButton {
                     optionsToChoose,
                     " ");
 
+
             if(!(getDay ==null)){
-                if(!getDay.equals(" ")){
+                if(!getDay.equals(" ")) {
                     this.setLabel(getDay);
-
-                    for(TrainingDay trd : trDays){
-                        if (trd.getDayMonth().equals(getDay)){
-                            p2.removeAll();
-                            ResultsTable resultsTable = new ResultsTable(trd);
-                            p2.add(resultsTable);
-                            break;
-                        }
-                    }
-
-                } else {
-                    this.setLabel("Day");
+                    p2.removeAll();
+                    ResultsTable resultsTable = new ResultsTable(trainings.findDay(getDay));
+                    p2.add(resultsTable);
                 }
             }
         });

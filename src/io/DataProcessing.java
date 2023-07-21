@@ -1,15 +1,13 @@
 package io;
 
 import model.TrainingDay;
+import model.Trainings;
 
 import java.io.*;
 import java.util.HashSet;
 
 public class DataProcessing {
-    private static final Object[] deadliftExercises = new String[] {"Deadlift", "Hyperextension", "Pull-ups", "Block thrust", "Biceps"};
-    private static final Object[] squatExercises = new String[] {"Squat", "Hyperextension", "Quadriceps", "Foot press", "Сalf muscle"};
-    private static final Object[] benchPressExercises = new String[] {"Bench press", "Pec deck", "Triceps", "Bars", "Shoulder press"};
-    public static void fromFileToSet(File f, HashSet<TrainingDay> trDays){
+    public static void fromFileToSet(File f, Trainings trainings){
         String line  = "";
         try(FileReader fr = new FileReader(f)){
             BufferedReader reader = new BufferedReader(fr);
@@ -27,12 +25,8 @@ public class DataProcessing {
             String dayResults = trDayRowData[2].substring(1,trDayRowData[2].length()-1 );
 
             String[] dayResultsMass = dayResults.split(", ");
-            Object[] exercise = new Object[5];
-            if(workoutType.equals("Deadlift")) exercise  = deadliftExercises;
-            else if(workoutType.equals("Squat")) exercise  = squatExercises;
-            else exercise  = benchPressExercises;
 
-            trDays.add(new TrainingDay(dayMonth, dayResultsMass, workoutType, exercise));
+            trainings.addTrainingDay(new TrainingDay(dayMonth, dayResultsMass, workoutType, Exercise.getExercise(workoutType)));
         }
     }
 
