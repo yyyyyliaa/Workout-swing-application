@@ -1,9 +1,9 @@
 package model;
 
+import io.DataProcessing;
 import io.Exercise;
 import view.TextFieldWindow;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -48,37 +48,21 @@ public class Trainings {
     public boolean addTrainingDay(String data){
         int d, m;
 
-        if(data.length()<5) {
-            JOptionPane.showMessageDialog(null,"Wrong data");
-            return false;
-        }
+        if(data.length()<5) return false;
         else{
             if(data.charAt(2) == '/'){
                 String[] tokens = data.split("/");
                 d = Integer.parseInt(tokens[0]);
                 m = Integer.parseInt(tokens[1]);
-            } else {
-                JOptionPane.showMessageDialog(null,"Wrong data");
-                return false;
-            }
+            } else return false;
 
             if(checkDataFormat(d, m)){
 
-                String getWorkoutType = (String) JOptionPane.showInputDialog(
-                        null,
-                        "Choose the type of workout:",
-                        "view.Workout type",
-                        JOptionPane.QUESTION_MESSAGE,
-                        null,
-                        Exercise.WORKOUT_TYPES,
-                        " ");
-
-
-                String[] res = new String[5];
+                String getWorkoutType = DataProcessing.inputWorkoutType();
 
                 TextFieldWindow textFieldWindow = new TextFieldWindow(Exercise.getExercise(getWorkoutType));
 
-                res = textFieldWindow.getResults();
+                String[] res = textFieldWindow.getResults();
 
                 for(String s : res)
                     if (s==null || !checkCorrectResults(s)) return false;
@@ -89,12 +73,8 @@ public class Trainings {
                 days.add(trd.getDayMonth());
                 return true;
 
-            } else {
-                JOptionPane.showMessageDialog(null,"Wrong data");
-                return false;
-            }
+            } else return false;
         }
-
     }
 
 

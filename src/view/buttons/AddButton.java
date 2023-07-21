@@ -15,7 +15,7 @@ public class AddButton extends JButton {
         super.addActionListener(e -> {
             String data;
             data = JOptionPane.showInputDialog(null,"Enter the date in the format: dd/mm");
-            trainings.addTrainingDay(data);
+            if(!trainings.addTrainingDay(data)) JOptionPane.showMessageDialog(null,"Wrong data");;
         });
     }
 }

@@ -3,6 +3,7 @@ package io;
 import model.TrainingDay;
 import model.Trainings;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.HashSet;
 
@@ -39,5 +40,16 @@ public class DataProcessing {
         } catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    public static String inputWorkoutType(){
+        return (String) JOptionPane.showInputDialog(
+                null,
+                "Choose the type of workout:",
+                "Workout type",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                Exercise.WORKOUT_TYPES,
+                " ");
     }
 }

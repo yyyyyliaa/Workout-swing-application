@@ -13,4 +13,5 @@ public class Exercise {
         else return Exercise.BENCH_PRESS;
     }
 
+
 }

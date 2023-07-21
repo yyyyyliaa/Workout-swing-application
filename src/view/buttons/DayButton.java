@@ -1,11 +1,9 @@
 package view.buttons;
 
-import model.TrainingDay;
 import model.Trainings;
 import view.ResultsTable;
 
 import javax.swing.*;
-import java.util.HashSet;
 
 public class DayButton extends JButton {
     public DayButton(String text) {
